@@ -72,9 +72,8 @@ public:
  vector<int> postorderTraversal(TreeNode *root) {
         // write your code here
         vector<int> result;
-             post(root,result);
-      
-            return result;
+        post(root,result);   
+        return result;
  }       
         void post(TreeNode *root,vector<int> &result)
         {
