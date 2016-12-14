@@ -110,3 +110,29 @@ public:
     }
 };
 ```
+
+再优化，因为res在计算的过程中，如果发生越界，那么得到的值/10操作肯定不会等于未加之前的值，则，res也可以声明为int类型。
+
+```
+class Solution {
+public:
+    /**
+     * @param n the integer to be reversed
+     * @return the reversed integer
+     */
+    int reverseInteger(int n) {
+        int result = 0;
+        while (n) {
+            auto prev = result;
+            result *= 10;
+            result += n % 10;
+            if (result / 10 != prev) {
+                result = 0;
+                break;
+            }
+            n /= 10;
+        }
+        return result;
+    }
+};
+```
